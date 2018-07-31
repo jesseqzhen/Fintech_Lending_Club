@@ -93,6 +93,7 @@ The graph shows the relative importance between the top 10 features:
 ## Model Performance
 
 The following graph shows the ROC curve for the training and testing datasets. Through cross-validation parameter tuning process, the prediction model nicely minimizes the over-fitting.
+
 ![ROC curves](roc_curve.png?raw=true "ROC curves")
 
 
