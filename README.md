@@ -1,6 +1,6 @@
 # LendingClub Investment Default Risk Analysis
 
-###### |<a href='#1'> Introduction </a> | <a href='#2'> Data Source</a> | <a href='#3'> Data Preparation </a> |<a href='#4'> Algorithm </a>| <a href='#5'> Top Features </a> | <a href='#6'> Model Accuracy  </a> ||<a href='https://jesseqzhen.github.io/Fintech_Lending_Club/'> Python Code HTML Version </a>|
+###### |<a href='#1'> Introduction </a> | <a href='#2'> Data Source</a> | <a href='#3'> Data Preparation </a> |<a href='#4'> Algorithm </a>| <a href='#5'> Top Features </a> | <a href='#6'> Model Performance  </a> ||<a href='https://jesseqzhen.github.io/Fintech_Lending_Club/'> Python Code HTML Version </a>|
 
 
 <a id='1'></a>
