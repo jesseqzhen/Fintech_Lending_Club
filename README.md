@@ -121,13 +121,13 @@ Under each grade group, we randomly sample 100 loans, and count the number of de
 |Grade   | # of defaults from         | # of defaults from top 100 loans| Reduced risk (%) |
 |        |randomly sampled 100 loans  | with lowest default risk  |    |
 
-|---|---|---|---|
-|A   |5   |3   | 40.00 | 
+|----|-----|----|-------|
+|A   |5    |3   | 40.00 | 
 |B   |10   |3   | 70.00 |  
 |C   |16   |3   | 81.25 |  
-|D   |23   |15   | 34.78 | 
-|E   |33   |19   | 42.42 | 
-|F   |37   |33   | 10.81 | 
+|D   |23   |15  | 34.78 | 
+|E   |33   |19  | 42.42 | 
+|F   |37   |33  | 10.81 | 
 
 Clearly, choosing loans based on the predicted default probability can dramatically reduce the default risk.
 
