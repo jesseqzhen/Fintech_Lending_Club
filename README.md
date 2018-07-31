@@ -119,7 +119,7 @@ Next, we demonstrate the performance on the test dataset, which comprises loans 
 Under each grade group, we randomly sample 100 loans, and count the number of defaulted loans. Then we choose the top 100 loans with the lowest predicted default risk and count the number of defaulted loans again. We compare these two counts in the following table:
 
 |Grade   | # of defaults from randomly sampled 100 loans         | # of defaults from top 100 loans with lowest default risk| Reduced risk (%) |
-|----|-----|----|-------|
+|:-:|:-:|:-:|:-:|
 |A   |5    |3   | 40.00 | 
 |B   |10   |3   | 70.00 |  
 |C   |16   |3   | 81.25 |  
