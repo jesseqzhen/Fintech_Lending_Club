@@ -10,7 +10,7 @@ LendingClub is the world's largest peer-to-peer lending platform, which enables 
 
 Investors make money from interest. At the same time, investors face default risk. LendingClub assigns a grade (A-E) to each note, reflective of the credit risk assessment of the corresponding loan. Notes with greater credit risk are assigned higher interest rates. Based on the year 2014 loan data Lending Club released, more than 13% of the 36-month loans were "charged-off" (when a loan is no later than 150 days past due). Thus, it's crucial for investors to build a portfolio of notes that matches their investment objectives and at the same time reduces their exposure to bad loans.
 
-This project uses historical LendingClub loan data to build a machine leaning model to identify the most important factors related to credit risk and to predict the default risk for each current loan. The moment new loans are added to the LendingClub platform, the algorithm analyzes the variables of these loans and recommends notes that are more likely to perform better than others.
+This project uses historical LendingClub loan data to build a machine leaning model to identify the most important factors related to credit risk and to predict the default risk for each current loan. The moment new loans are added to the LendingClub platform, the algorithm analyzes the variables of these loans and recommends notes that are more likely to perform better than others. From the analysis, it clearly shows that choosing loans based on the predicted default probability can dramatically reduce the default risk.
 
 
 <a id='2'></a>
@@ -32,11 +32,17 @@ We performed the following data preparation processes:
 
 * **Change features with object data type to numerical features.** Some features, such as the interest rate, the evolving line utilization rate, and the employment length, are of object data type in the original dataset. They can be transformed to numerical featurs.
 
-* **One-hot-encoding for categorical features.** We performed one hot encoding for some categorical features, such as the home ownership, the income verification status, and the loan purpose.
+* **Frequency encoding for categorical features with high cardinality** such as applicants' address state and address zipcode.
 
-* **Remove highly correlated features.**
+* **One-hot-encoding for categorical features** on home ownership, the income verification status, and the loan purpose.
 
-After the above data preparation processes, we ended up with 64 features.
+* **Remove highly correlated numerical features.**
+
+After the above data preparation processes, we ended up with the following dataset for modeling:
+* totally 162,545 records
+* 13.7% records are default loans
+* 139,120 records for training, which are loans issued from Janurary to October 2014
+* 23,425 records for testing, which are loans issued from November to December 2014
 
 
 <a id='4'></a>
@@ -67,14 +73,15 @@ A benefit of using gradient boosting (including XGBoost) is that after the boost
 We list the ten most important features:
 * **intrate** Interest rate on the loan.
 * **loanamount** The listed amount of the loan applied for by the borrower.
-* **dti** The borrower's debt to income ratio, calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income.
 * **annualinc** The annual income provided by the borrower during registration.
-* **tothicredlim** Total high credit/credit limit.
+* **dti** The borrower's debt to income ratio, calculated using the monthly payments on the total debt obligations, excluding mortgage, divided by self-reported monthly income.
 * **mosinoldrevtlop** Months since oldest revolving account opened.
+* **tothicredlim** Total high credit/credit limit.
 * **accopenpast24mths** Number of trades opened in past 24 months.
 * **emplength** Employment length in months. 
-* **addrstate_freq** The address state provided by the borrower during loan application.
-* **mthssincerecentbc** Months since most recent bankcard account opened.
+* **pcttlnvrdlq** Percent of trades never delinquent.
+* **mosinoldilacct** Months since oldest bank installment account opened.
+
 
 The graph shows the relative importance between the top 10 features:
 ![Top 10 important features](feature_importance_xgb.png?raw=true "Top 10 important features")
