@@ -38,7 +38,11 @@ We performed the following data preparation processes:
 
 * **Remove highly correlated numerical features.**
 
-After the above data preparation processes, we ended up with 64 features.
+After the above data preparation processes, we ended up with the following dataset for modeling:
+* totally 162,545 records
+* 13.7% records are default loans
+* 139,120 records for training, which are loans issued from Janurary to October 2014
+* 23,425 records for testing, which are loans issued from November to December 2014
 
 
 <a id='4'></a>
