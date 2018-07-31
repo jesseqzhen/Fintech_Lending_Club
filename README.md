@@ -90,9 +90,13 @@ The graph shows the relative importance between the top 10 features:
 
 
 <a id='6'></a>
-## Model Accuracy 
+## Model Performance
 
-This project is to help investors identify the good loans and minimize the exposure of default risk. Thus, we focus the model accuracy on the true positive rate (TPR) and the negative predictive value (NPV). 
+The following graph shows the ROC curve for the training and testing datasets. Through cross-validation parameter tuning process, the prediction model nicely minimizes the over-fitting.
+
+<img width=100px height=200px src=''roc_curve.png"></img>
+
+This project is to help investors identify the good loans and minimize the exposure of default risk. Thus, we focus the model performance on the true positive rate (TPR) and the negative predictive value (NPV). 
 
 * **True positive rate (TPR)** is also called recall, or sensitivity, which measures the proportion of actual default loans that are correctly identified as such. 
 
@@ -102,13 +106,29 @@ The following table provides the TPR and NPV values under different thresholds f
 
 |Threshold   | TPR  | NPV  | 
 |---|---|---|
-|0.05   |0.9695   |0.9667   |  
-|0.10   |0.8236   |0.9388   |   
-|0.15   |0.6158   |0.9159   |   
+|0.05   |0.9685   |0.9694   |  
+|0.10   |0.7859   |0.9327   |   
+|0.15   |0.5794   |0.9112   |   
 
-That is to say, if we label loans with probability of default higher than 0.10 as "bad" loans, our model can correctly idenfity 82% of the bad loans, and at the same time, 94% of the loans that are labeled as "good" loans are real non-default loans.
+That is to say, if we label loans with probability of default higher than 0.10 as "bad" loans, our model can correctly idenfity 78% of the bad loans, and at the same time, 93% of the loans that are labeled as "good" loans are real non-default loans.
  
  
+
+Next, we demonstrate the performance on the test dataset, which comprises loans issued in November and December 2014.
+
+Under each grade group, we randomly sample 100 loans, and count the number of defaulted loans. Then we choose the top 100 loans with the lowest predicted default risk and count the number of defaulted loans again. We compare these two counts in the following table:
+
+|Grade   | # of defaults from         | # of defaults from top 100 loans| Reduced risk (%) |
+|        |randomly sampled 100 loans  | with lowest default risk  |    |
+|---|---|---|---|
+|A   |5   |3   | 40.00 | 
+|B   |10   |3   | 70.00 |  
+|C   |16   |3   | 81.25 |  
+|D   |23   |15   | 34.78 | 
+|E   |33   |19   | 42.42 | 
+|F   |37   |33   | 10.81 | 
+
+Clearly, choosing loans based on the predicted default probability can dramatically reduce the default risk.
 
 
 
