@@ -93,7 +93,7 @@ The graph shows the relative importance between the top 10 features:
 ## Model Performance
 
 The following graph shows the ROC curve for the training and testing datasets. Through cross-validation parameter tuning process, the prediction model nicely minimizes the over-fitting.
-![ROC curves](roc_curve.png "ROC curves")
+![ROC curves](roc_curve.png?raw=true "ROC curves")
 
 
 This project is to help investors identify the good loans and minimize the exposure of default risk. Thus, we focus the model performance on the true positive rate (TPR) and the negative predictive value (NPV). 
@@ -120,6 +120,7 @@ Under each grade group, we randomly sample 100 loans, and count the number of de
 
 |Grade   | # of defaults from         | # of defaults from top 100 loans| Reduced risk (%) |
 |        |randomly sampled 100 loans  | with lowest default risk  |    |
+
 |---|---|---|---|
 |A   |5   |3   | 40.00 | 
 |B   |10   |3   | 70.00 |  
